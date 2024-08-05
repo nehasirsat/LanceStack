@@ -1,0 +1,52 @@
+.show-bids {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.header .navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.bids-container {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure cards stay in a single row */
+  overflow-x: auto; /* Enable horizontal scrolling if necessary */
+  padding: 20px;
+  gap: 20px; /* Space between cards */
+}
+
+.bid-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 300px; /* Fixed width for each card */
+  background-color: #fff9c4; /* Light yellow color for the card */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card depth */
+  text-align: center;
+  flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+.bid-card button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #90ee90; /* Light green color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.bid-card button:hover {
+  background-color: #77c8a3; /* Darker green on hover */
+}
