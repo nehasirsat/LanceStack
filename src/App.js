@@ -5,6 +5,8 @@ import Signup from './Pages/Signup';
 import Home from './Pages/Home';
 import ClientPage from './Pages/Client';
 import RegisterFreelancer from './Pages/RegisterFreelancer';
+import FreelancerProfile from './Pages/FreelancerProfile';
+import Projects from './Pages/Projects';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Route path='/Home' element={<Home/>}/>
       <Route path='/clientpage' element={<ClientPage/>}/>
       <Route path='/registerfreelancer' element={<RegisterFreelancer/>}/>
+      <Route path='/FreelancerProfile' element={<FreelancerProfile/>}/>
+      <Route path='/Projects' element={<Projects/>}/>
     </Routes>
     </div>
   );

@@ -2,7 +2,7 @@
     margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.5;
-    color: #333;
+    color: #fefbfb;
     display: flex;
   flex-direction: column;
 }
@@ -54,23 +54,58 @@ header nav ul li a {
 }
 .fl{
     color: #fff;
-    display: flex;
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 20px;
     justify-content: center;
-    background-color: rgb(105, 108, 108);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
 }
 .cards{
-    color: white;
-    background-color: #7a7777;
+    border-radius: 8px;
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 20px;
 
 }
-.card{
-    color: white;
-    background-color: #908d8d;
-    margin-top: 10px;
-}
+.card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(198, 188, 188, 0.921);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(192, 174, 174, 0.851);
+    background-color: #8e8a8a;
+  }
+  
+  .cardbody{
+    padding: 20px;
+    color: #fefbfb;
+    background-color: #4e4c4c;
+  }
+  button{
+    width: 100px;
+  }
+  .projects{
+     background-image: url('https://img.freepik.com/premium-photo/working-place-freelancers-laptop-flower-glasses-dark-concrete-background-copy-space_76255-467.jpg?w=1060');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 722px;
+  }
+  .clienthome{
+    background-image: url('https://img.freepik.com/premium-photo/working-place-freelancers-laptop-flower-glasses-dark-concrete-background-copy-space_76255-467.jpg?w=1060');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 722px;
+  }
+  .freelancers{
+    background-image: url('https://img.freepik.com/premium-photo/working-place-freelancers-laptop-flower-glasses-dark-concrete-background-copy-space_76255-467.jpg?w=1060');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 722px;
+  }

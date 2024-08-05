@@ -1,50 +1,19 @@
 import "../styles/clientpage.css";
-import Fl from "../components/Fl"
-export default function ClientPage() {
+import Navigation from "../components/Navigation";
 
-  const arr=[{name:"n1",email:"n1@gmail.com",skills:"React,Express,Nodejs"},{name:"n2",email:"n2@gmail.com",skills:"React,Express,Nodejs"}];
+export default function ClientPage() {
   return (
-    <div>
-    <div className="body">
-      <header>
-        <div className="container1">
-          <nav>
-            <ul>
-            <div className="leftel">
-            <h4>Hello Neha</h4>
-            </div>
-            <div className="container2">
-              <li>
-                <a href="ClientPage">Dashboard</a>
-              </li>
-              <li>
-                <a href="Login">Projects</a>
-              </li>
-              <li>
-                <a href="Signup">Freelancers</a>
-              </li>
-              <li>
-                <a href="#contact">Settings</a>
-              </li>
-              <li>
-                <a href="RegisterFreelancer">Register as Freelancer</a>
-              </li>
-              </div>
-            </ul>
-          </nav>
-        </div>
-      </header>
-      <div className="fl">
-        <h2>Freelancers</h2>
-      </div>
-        <div className="cards">
-          {arr.map((item) => (
-            <div className="card" key={item.name}>
-            <Fl name={item.name} email={item.email} skills={item.skills}/>
-          </div>
-          ))}
-        </div>
-      </div>
+    <div className="clienthome">
+    <Navigation/>
+     <div className="fl">
+     <br></br>
+     <h3>
+     Welcome back to Lancestack, your go-to platform for tech project freelancing! We’re thrilled to see you again. Here’s a quick snapshot of your recent activities:
+     </h3>
+     <h3>Let’s get started! Whether you're looking to kick off a new project or check on existing ones, everything you need is right at your fingertips.</h3>
+     <br></br>
+     <h4>Active Projects: [Number of Active Projects]</h4>
+     </div>
     </div>
   );
 }
