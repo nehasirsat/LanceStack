@@ -5,6 +5,7 @@ import BidConfirmation from './Components/Freelancer/BidConfirmation';  // Corre
 import EditProfile from './Components/Freelancer/EditProfile';
 import ShowBids from './Components/Freelancer/ShowBids';
 import MyProjects from './Components/Freelancer/MyProjects';
+import CompletedProjects from './Components/Freelancer/CompletedProjects';
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
         <Route path="/my-projects" element={< MyProjects/>} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/show-bids" element={<ShowBids />} />
+        <Route path="/completed-projects" element={<CompletedProjects />} /> 
+
 
 
 

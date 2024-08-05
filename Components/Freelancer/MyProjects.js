@@ -1,65 +1,55 @@
 import React, { useState } from 'react';
-//import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../Styles/MyProjects.css';
 
-const initialCompletedProjects = [
-  { id: 1, title: "Completed Web Application", type: "WebApp", description: "Description of completed project." },
-  { id: 2, title: "Completed Desktop Application", type: "DesktopApp", description: "Description of completed project." },
-];
-
-const initialOngoingProjects = [
-  { id: 3, title: "Ongoing Web Application", type: "WebApp", description: "Description of ongoing project." },
-  { id: 4, title: "Ongoing Desktop Application", type: "DesktopApp", description: "Description of ongoing project." },
-];
-
 const MyProjects = () => {
-  const [completedProjects, setCompletedProjects] = useState(initialCompletedProjects);
-  const [ongoingProjects, setOngoingProjects] = useState(initialOngoingProjects);
-  
-  //const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+  const [inProgressProjects, setInProgressProjects] = useState([
+    { id: 1, title: 'Project 1', description: 'Description of Project 1' },
+    { id: 2, title: 'Project 2', description: 'Description of Project 2' },
+    { id: 3, title: 'Project 3', description: 'Description of Project 3' },
+  ]);
+  const [completedProjects, setCompletedProjects] = useState([]);
 
-  const handleCompleteClick = (projectId) => {
-    const project = ongoingProjects.find(p => p.id === projectId);
-    if (project) {
-      setCompletedProjects([...completedProjects, project]);
-      setOngoingProjects(ongoingProjects.filter(p => p.id !== projectId));
+  const handleMarkAsComplete = (projectId) => {
+    const projectToMark = inProgressProjects.find(project => project.id === projectId);
+    if (projectToMark) {
+      setInProgressProjects(inProgressProjects.filter(project => project.id !== projectId));
+      setCompletedProjects([...completedProjects, projectToMark]);
     }
   };
 
- 
+  const handleCompletedProjectsClick = () => {
+    navigate('/completed-projects', { state: { completedProjects } });
+  };
 
   return (
     <div className="my-projects">
-      <h1>My Projects</h1>
-      <section className="completed-projects">
-        <h2>Completed Projects</h2>
-        {completedProjects.length > 0 ? (
-          completedProjects.map(project => (
-            <div key={project.id} className="project-card">
-              <h3>{project.title}</h3>
-              <p>Type: {project.type}</p>
-              <p>Description: {project.description}</p>
-            </div>
-          ))
-        ) : (
-          <p>No completed projects.</p>
-        )}
-      </section>
-      <section className="ongoing-projects">
-        <h2>Ongoing Projects</h2>
-        {ongoingProjects.length > 0 ? (
-          ongoingProjects.map(project => (
-            <div key={project.id} className="project-card">
-              <h3>{project.title}</h3>
-              <p>Type: {project.type}</p>
-              <p>Description: {project.description}</p>
-              <button className="complete-button" onClick={() => handleCompleteClick(project.id)}>Mark as Completed</button>
-            </div>
-          ))
-        ) : (
-          <p>No ongoing projects.</p>
-        )}
-      </section>
+      <div className="header">
+        <div className="freelancer-name">Freelancer Name</div>
+        <div className="navbar">
+          <a href="/my-projects">My Projects</a>
+          <a href="#profile">Profile</a>
+          <a href="#show-bids">Show Bids</a>
+        </div>
+      </div>
+      <div className="projects-section">
+        <div className="in-progress-section">
+          <h2>In Progress Projects</h2>
+          <div className="project-list">
+            {inProgressProjects.map((project) => (
+              <div className="project-card" key={project.id}>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <button className="complete-button" onClick={() => handleMarkAsComplete(project.id)}>Mark as Complete</button>
+              </div>
+            ))}
+          </div>
+        </div>
+        <button className="completed-projects-button" onClick={handleCompletedProjectsClick}>
+          Go to Completed Projects
+        </button>
+      </div>
     </div>
   );
 };
