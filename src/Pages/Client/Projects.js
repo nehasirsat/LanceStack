@@ -1,5 +1,6 @@
 import "../../styles/client/clientpage.css"
 import Navigation from "../../components/Navigation";
+import { Link } from "react-router-dom";
 
 export default function Projects()
 {
@@ -16,7 +17,9 @@ export default function Projects()
                     <h4>{item.Title}</h4>
                     <h4>{item.Description}</h4>
                     <h4>status:{item.pstatus}</h4>
-                    <button>Show Bids</button>
+                    <Link to={'./bids'}>
+                    <button >Show Bids</button>
+                    </Link>
                     </body>
                     </div>
                 ))

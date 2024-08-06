@@ -14,6 +14,7 @@ import MyProjects from './Pages/Freelancer/MyProjects';
 import EditProfile from './Pages/Freelancer/EditProfile';
 import ShowBids from './Pages/Freelancer/ShowBids';
 import CompletedProjects from './Pages/Freelancer/CompletedProjects';
+import BidList from './Pages/Client/Bids';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path='/FreelancerProfile' element={<FreelancerProfile/>}/>
       <Route path='/Projects' element={<Projects/>}/>
       <Route path='/ClientProfile' element={<ClientProfile/>}/>
+      <Route path='/Projects/Bids' element ={<BidList/>}/>
 
       <Route path="/freelancer" element={<Freelancer />} />
         <Route path="/bid-confirmation" element={<BidConfirmation />} />
