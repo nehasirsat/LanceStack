@@ -3,10 +3,11 @@ import Login from './Pages/Login';
 import { Route,Routes } from 'react-router-dom';
 import Signup from './Pages/Signup';
 import Home from './Pages/Home';
-import ClientPage from './Pages/Client';
+import ClientPage from './Pages/Client/Client';
 import RegisterFreelancer from './Pages/RegisterFreelancer';
-import FreelancerProfile from './Pages/FreelancerProfile';
-import Projects from './Pages/Projects';
+import FreelancerProfile from './Pages/Client/FreelancerProfile';
+import Projects from './Pages/Client/Projects';
+import ClientProfile from './Pages/Client/ClientProfile';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/registerfreelancer' element={<RegisterFreelancer/>}/>
       <Route path='/FreelancerProfile' element={<FreelancerProfile/>}/>
       <Route path='/Projects' element={<Projects/>}/>
+      <Route path='/ClientProfile' element={<ClientProfile/>}/>
     </Routes>
     </div>
   );

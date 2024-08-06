@@ -1,6 +1,5 @@
-
-import Navigation from "../components/Navigation";
-import "../styles/clientpage.css";
+import "../../styles/clientpage.css"
+import Navigation from "../../components/Navigation";
 
 export default function Projects()
 {
