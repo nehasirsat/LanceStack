@@ -28,9 +28,9 @@ const MyProjects = () => {
       <div className="header">
         <div className="freelancer-name">Freelancer Name</div>
         <div className="navbar">
-          <a href="/my-projects">My Projects</a>
-          <a href="#profile">Profile</a>
-          <a href="#show-bids">Show Bids</a>
+          <a href="my-projects">My Projects</a>
+          <a href="profile">Profile</a>
+          <a href="show-bids">Show Bids</a>
         </div>
       </div>
       <div className="projects-section">
