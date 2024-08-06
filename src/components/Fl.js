@@ -1,4 +1,4 @@
-import "../styles/clientpage.css";
+import "../styles/client/clientpage.css";
 export default function Fl(props)
 {
     return(

@@ -1,6 +1,6 @@
 
 import Fl from '../../components/Fl'
-import "../../styles/clientpage.css"
+import "../../styles/client/clientpage.css"
 import Navigation from "../../components/Navigation";
 
 export default function FreelancerProfile()
