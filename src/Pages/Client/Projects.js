@@ -9,8 +9,12 @@ export default function Projects()
 
         <div className="projects">
            <Navigation/>
+           <Link to={'PostProject'} className="btn">
+                    <button >Post Project</button>
+                </Link>
            <div className="cards">
               {
+                
                 arr.map((item)=>(
                     <div key={item.Title} className="card">
                     <body className="cardbody">

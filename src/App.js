@@ -13,8 +13,9 @@ import BidConfirmation from './Pages/Freelancer/BidConfirmation';
 import MyProjects from './Pages/Freelancer/MyProjects';
 import EditProfile from './Pages/Freelancer/EditProfile';
 import ShowBids from './Pages/Freelancer/ShowBids';
-import CompletedProjects from './Pages/Freelancer/CompletedProjects';
 import BidList from './Pages/Client/Bids';
+import ContractDetails from './Pages/Client/Contract';
+import PostProjectQuery from './Pages/Client/PostProject';
 
 function App() {
   return (
@@ -30,13 +31,15 @@ function App() {
       <Route path='/Projects' element={<Projects/>}/>
       <Route path='/ClientProfile' element={<ClientProfile/>}/>
       <Route path='/Projects/Bids' element ={<BidList/>}/>
+      <Route path='/Contract' element={<ContractDetails/>}/>
+      <Route path='/Projects/PostProject' element={<PostProjectQuery/>}/>
 
       <Route path="/freelancer" element={<Freelancer />} />
         <Route path="/bid-confirmation" element={<BidConfirmation />} />
         <Route path="/my-projects" element={< MyProjects/>} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/show-bids" element={<ShowBids />} />
-        <Route path="/completed-projects" element={<CompletedProjects />} /> 
+        <Route path="/completed-projects" element={<ContractDetails />} /> 
 
     </Routes>
     </div>

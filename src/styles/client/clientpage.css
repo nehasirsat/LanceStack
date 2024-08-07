@@ -88,6 +88,13 @@ header nav ul li a {
     color: #fefbfb;
     background-color: #4e4c4c;
   }
+  .btn{
+    background-color: #d8dbde;
+    color: rgb(91, 84, 84);
+    margin-left: 300px;
+    margin-top: 25px;
+    cursor: pointer;
+  }
   button{
     width: 100px;
   }

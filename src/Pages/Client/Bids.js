@@ -22,7 +22,7 @@ const BidList = () => {
                   <p>Bid Amount: ${bid.amount}</p>
                   <p>Description:{bid.description}</p>
                   <p>Comments: {bid.comments}</p>
-                  <Link to={'/contract'}>
+                  <Link to={'/Contract'}>
                     <button>Assign</button>
                   </Link>
                 </div>
