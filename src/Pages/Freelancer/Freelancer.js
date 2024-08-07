@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import '../../styles/freelancer/Freelancer.css';
 import ProfilePanel from './ProfilePanel';
 
-
 const projects = [
-  { id: 1, title: "Web Application", type: "WebApp", bidAmount: 500 },
-  { id: 2, title: "Desktop Application", type: "DesktopApp", bidAmount: 1000 },
+  { id: 1, title: "Web Application", type: "WebApp", bidAmount: 50 },
+  { id: 2, title: "Desktop Application", type: "DesktopApp", bidAmount: 100 },
   // Add more projects as needed
 ];
 
@@ -14,7 +13,7 @@ const Freelancer = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [selectedBidAmounts, setSelectedBidAmounts] = useState([]);
+  const [bidAmountRange, setBidAmountRange] = useState([0, 100]);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [showProfilePanel, setShowProfilePanel] = useState(false);
 
@@ -22,15 +21,6 @@ const Freelancer = () => {
 
   const toggleFilters = () => {
     setShowFilters(!showFilters);
-  };
-
-  const handleBidAmountChange = (e) => {
-    const value = parseInt(e.target.value);
-    setSelectedBidAmounts(
-      e.target.checked 
-        ? [...selectedBidAmounts, value] 
-        : selectedBidAmounts.filter(amount => amount !== value)
-    );
   };
 
   const handleTypeChange = (e) => {
@@ -45,12 +35,11 @@ const Freelancer = () => {
   const applyFilters = () => {
     let filtered = projects;
 
-    if (selectedBidAmounts.length > 0) {
-      filtered = filtered.filter(project => selectedBidAmounts.includes(project.bidAmount));
-    }
     if (selectedTypes.length > 0) {
       filtered = filtered.filter(project => selectedTypes.includes(project.type));
     }
+    filtered = filtered.filter(project => project.bidAmount >= bidAmountRange[0] && project.bidAmount <= bidAmountRange[1]);
+
     if (searchQuery) {
       filtered = filtered.filter(project => project.title.toLowerCase().includes(searchQuery.toLowerCase()));
     }
@@ -88,6 +77,11 @@ const Freelancer = () => {
     setShowProfilePanel(!showProfilePanel);
   };
 
+  const handleBidAmountChange = (e) => {
+    const value = parseInt(e.target.value);
+    setBidAmountRange([0, value]);
+  };
+
   return (
     <div className="freelancer">
       <header className="header">
@@ -118,15 +112,14 @@ const Freelancer = () => {
               <h3>Filters</h3>
               <div className="filter-group">
                 <h4>By Bid Amount</h4>
-                <label>
-                  <input type="checkbox" value={500} onChange={handleBidAmountChange} />
-                  $500
-                </label>
-                <label>
-                  <input type="checkbox" value={1000} onChange={handleBidAmountChange} />
-                  $1000
-                </label>
-                {/* Add more ranges as needed */}
+                <input 
+                  type="range" 
+                  min="0" 
+                  max="100" 
+                  value={bidAmountRange[1]} 
+                  onChange={handleBidAmountChange} 
+                />
+                <div>Range: {bidAmountRange[0]} - {bidAmountRange[1]}</div>
               </div>
               <div className="filter-group">
                 <h4>By Project Type</h4>
@@ -155,9 +148,7 @@ const Freelancer = () => {
           ))}
         </div>
       </div>
-      {showProfilePanel && (
-        <ProfilePanel onClose={toggleProfilePanel} />
-      )}
+      <ProfilePanel onClose={toggleProfilePanel} className={showProfilePanel ? 'open' : ''} />
     </div>
   );
 };

@@ -1,62 +1,65 @@
-import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../../styles/freelancer/BidCinfirmation.css';
 
+
 const BidConfirmation = () => {
-  const { state } = useLocation();
-  const navigate = useNavigate();
-  
-  const [bidAmount, setBidAmount] = useState(state.project.bidAmount);
-  const [duration, setDuration] = useState(state.project.duration);
-  const [description, setDescription] = useState(state.project.description);
+  const location = useLocation();
+  const { project } = location.state || {};
+
+  const [bidAmount, setBidAmount] = useState('');
+  const [skills, setSkills] = useState('');
+  const [specialRequirements, setSpecialRequirements] = useState('');
+
+  useEffect(() => {
+    if (project) {
+      setBidAmount(project.bidAmount);
+    }
+  }, [project]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Bid submitted successfully!');
-    navigate('/show-bids'); // Redirect to show bids page after submitting the bid
+    // Handle the bid submission logic here
+    console.log('Bid submitted:', { bidAmount, skills, specialRequirements });
   };
 
   return (
     <div className="bid-confirmation">
-      <h1>Bid Confirmation</h1>
-      <div className="project-details">
-        <h2>Project Details</h2>
-        <p><strong>Title:</strong> {state.project.projectTitle}</p>
-        <p><strong>Type:</strong> {state.project.type}</p>
-        <p><strong>Bid Amount:</strong> ${state.project.bidAmount}</p>
-      </div>
+      <h2>Bid Confirmation</h2>
+      {project ? (
+        <div className="project-details">
+          <h3>Project: {project.title}</h3>
+          <p>Description: {project.description}</p>
+          <p>Current Bid Amount: {project.bidAmount}</p>
+        </div>
+      ) : (
+        <p>No project details available</p>
+      )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="bidAmount">Bid Amount</label>
+          <label>Bid Amount</label>
           <input
-            type="number"
-            id="bidAmount"
+            type="text"
             value={bidAmount}
             onChange={(e) => setBidAmount(e.target.value)}
-            required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="duration">Duration (in days)</label>
+          <label>Skills</label>
           <input
-            type="number"
-            id="duration"
-            value={duration}
-            onChange={(e) => setDuration(e.target.value)}
-            required
+            type="text"
+            value={skills}
+            onChange={(e) => setSkills(e.target.value)}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="description">Description</label>
+          <label>Special Requirements</label>
           <textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            rows="4"
-          ></textarea>
+            value={specialRequirements}
+            onChange={(e) => setSpecialRequirements(e.target.value)}
+          />
         </div>
-        <button type="submit" className="submit-button">Submit Bid</button>
+        <button type="submit" className="submit-button">Submit</button>
       </form>
     </div>
   );
