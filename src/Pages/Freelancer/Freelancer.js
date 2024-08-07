@@ -4,8 +4,11 @@ import '../../styles/freelancer/Freelancer.css';
 import ProfilePanel from './ProfilePanel';
 
 const projects = [
-  { id: 1, title: "Web Application", type: "WebApp", bidAmount: 50 },
-  { id: 2, title: "Desktop Application", type: "DesktopApp", bidAmount: 100 },
+  { id: 1, title: "Web Application", type: "WebApplication", bidAmount: 50 },
+  { id: 2, title: "Desktop Application", type: "DesktopApplication", bidAmount: 100 },
+  { id: 3, title: "Android Application", type: "AndroidApplication", bidAmount: 75 },
+  { id: 4, title: "Game Development", type: "GameDevelopment", bidAmount: 80 },
+  { id: 5, title: "Enterprise Software", type: "EnterpriseSoftware", bidAmount: 90 },
   // Add more projects as needed
 ];
 
@@ -73,6 +76,10 @@ const Freelancer = () => {
     navigate('/show-bids');
   };
 
+  const goToContracts = () => {
+    navigate('/contracts');
+  };
+
   const toggleProfilePanel = () => {
     setShowProfilePanel(!showProfilePanel);
   };
@@ -89,6 +96,7 @@ const Freelancer = () => {
         <nav className="navbar">
           <button onClick={goToMyProjects}>My Projects</button>
           <button onClick={goToShowBids}>Show Bids</button>
+          <button onClick={goToContracts}>Contracts</button>
           <button onClick={toggleProfilePanel}>Profile</button>
         </nav>
       </header>
@@ -124,12 +132,24 @@ const Freelancer = () => {
               <div className="filter-group">
                 <h4>By Project Type</h4>
                 <label>
-                  <input type="checkbox" value="WebApp" onChange={handleTypeChange} />
-                  WebApp
+                  <input type="checkbox" value="WebApplication" onChange={handleTypeChange} />
+                  Web Application
                 </label>
                 <label>
-                  <input type="checkbox" value="DesktopApp" onChange={handleTypeChange} />
-                  DesktopApp
+                  <input type="checkbox" value="AndroidApplication" onChange={handleTypeChange} />
+                  Android Application
+                </label>
+                <label>
+                  <input type="checkbox" value="DesktopApplication" onChange={handleTypeChange} />
+                  Desktop Application
+                </label>
+                <label>
+                  <input type="checkbox" value="GameDevelopment" onChange={handleTypeChange} />
+                  Game Development
+                </label>
+                <label>
+                  <input type="checkbox" value="EnterpriseSoftware" onChange={handleTypeChange} />
+                  Enterprise Software
                 </label>
                 {/* Add more project types as needed */}
               </div>
@@ -148,7 +168,12 @@ const Freelancer = () => {
           ))}
         </div>
       </div>
-      <ProfilePanel onClose={toggleProfilePanel} className={showProfilePanel ? 'open' : ''} />
+      {showProfilePanel && (
+        <ProfilePanel onClose={toggleProfilePanel} />
+      )}
+      <footer className="footer">
+        <p>All rights reserved &copy; {new Date().getFullYear()}</p>
+      </footer>
     </div>
   );
 };

@@ -1,5 +1,10 @@
+/* Freelancer.css */
+
 .freelancer {
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
@@ -7,36 +12,50 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #ddd;
+  background-color: #333;
+  color: white;
 }
 
 .freelancer-name {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 1.5em;
 }
 
-.navbar a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
+.navbar {
+  display: flex;
+  gap: 15px;
 }
 
-.content {
+.navbar button {
+  background: none;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.navbar button:hover {
+  background-color: #555;
+}
+
+.main-content {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  flex: 1;
 }
 
 .search-container {
-  padding: 10px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .search-bar {
-  width: 300px; /* Reduced width of search bar */
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  width: 50%;
+  padding: 10px;
+  font-size: 1em;
+  margin-left: 20px;
 }
 
 .filter-button {
@@ -47,65 +66,98 @@
   align-self: flex-start;
 }
 
+.filter-button:hover {
+  background-color: #555;
+}
+
 .filter-section {
   position: fixed;
-  left: 0;
   top: 0;
-  bottom: 0;
-  width: 0;
-  overflow: hidden;
-  transition: width 0.3s;
-  background-color: #f8f8f8;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
   z-index: 1000;
-  border-right: 1px solid #ddd;
-  padding-top: 60px; /* Adjust according to your header height */
 }
 
 .filter-section.open {
-  width: 250px;
+  transform: translateX(0);
 }
 
 .filter-header {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
-  background-color: #f8f8f8;
 }
 
 .close-button {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 1.5em;
   cursor: pointer;
 }
 
-.filters {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
+.filters h3 {
+  margin-top: 0;
 }
 
 .filter-group {
   margin-bottom: 20px;
 }
 
-.project-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  flex-grow: 1;
+.filter-group h4 {
+  margin-bottom: 10px;
 }
 
-.project-card {
-  border: 1px solid #ddd;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
+.filter-group label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.filter-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  background-color: #f7f7f7;
+}
+
+.project-card h3 {
+  margin-top: 0;
 }
 
 .bid-button {
-  margin-top: 10px;
-  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
   cursor: pointer;
+  font-size: 1em;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.bid-button:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: auto;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/freelancer/ProfilePanel.css';
 
-const ProfilePanel = ({ onClose, className }) => {
+const ProfilePanel = ({ onClose }) => {
   const navigate = useNavigate();
 
   const goToEditProfile = () => {
@@ -10,7 +10,7 @@ const ProfilePanel = ({ onClose, className }) => {
   };
 
   return (
-    <div className={`profile-panel ${className}`}>
+    <div className="profile-panel">
       <button className="close-button" onClick={onClose}>×</button>
       <div className="profile-options">
         <button className="profile-option" onClick={goToEditProfile}>Edit Profile</button>
