@@ -3,18 +3,17 @@ import { useState } from "react"
 
 export default function Signup(){
 
-
-    const [firstname,setfirstname]=useState("");
-    const [lastname,setlastname]=useState("");
     const [username,setusername]=useState("");
+    const [email,setemail]=useState("");
+    const [phone,setphone]=useState("");
     const [password,setpassword]=useState("");
     const [confirmpass,setconfirmpass]=useState("");
     const handleForm=()=>{
         const userdata={
-            firstname:firstname,
-            lastname:lastname,
             username:username,
             password:password,
+            email:email,
+            phone:phone,
             confirmpass:confirmpass
         }
         axios.post("/storeuser",userdata)
@@ -25,20 +24,22 @@ export default function Signup(){
     return(
         <div>
                <form>
-               <label>FirstName:</label><br/>
-               <input type="text" name="firstname" onChange={(e)=>
-               {setfirstname(e.target.value);
-               console.log(firstname);
-               }}/><br/>
-               <label>LastName:</label><br/>
-               <input type="text" name="lastname" onChange={(e)=>
-               {setlastname(e.target.value);
-               console.log(lastname);
-               }}/><br/>
                 <label>Username:</label><br/>
                 <input type="text" id="username" name="username" onChange={(e)=>
                {setusername(e.target.value);
                console.log(username);
+               }}/><br/>
+               <label>Email:</label><br/>
+               <input type="text" id="email" name="email" onChange={(e)=>
+               {
+                setemail(e.target.value);
+                console.log(email);
+               }}/><br/>
+               <label>Phone Number:</label><br/>
+               <input type="text" id="phone" name="phone" onChange={(e)=>
+               {
+                setphone(e.target.value);
+                console.log(phone);
                }}/><br/>
                 <label>Password:</label><br/>
                 <input type="password" id="password" name="password" onChange={(e)=>

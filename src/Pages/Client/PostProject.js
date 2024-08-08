@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/client/projectform.css';
 
+
 const PostProjectQuery = () => {
   const [formData, setFormData] = useState({
     projectTitle: '',
@@ -21,13 +22,18 @@ const PostProjectQuery = () => {
   };                              
 
   const validate = () => {
-    let tempErrors = {};
-    tempErrors.projectTitle = formData.projectTitle ? "" : "This field is required.";
-    tempErrors.projectType = formData.projectType ? "" : "This field is required.";
-    tempErrors.description = formData.description ? "" : "This field is required.";
-    tempErrors.budget = formData.budget ? "" : "This field is required.";
-    setErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0;
+    // let tempErrors = {};
+    // tempErrors.projectTitle = formData.projectTitle ? "" : "This field is required.";
+    // tempErrors.projectType = formData.projectType ? "" : "This field is required.";
+    // tempErrors.description = formData.description ? "" : "This field is required.";
+    // tempErrors.budget = formData.budget ? "" : "This field is required.";
+    // setErrors(tempErrors);
+    // return Object.keys(tempErrors).length === 0;
+    if (formData.projectTile === '' || formData.projectType === '' || formData.description === '' || formData.budget === '' ) {
+        return false;
+        }
+
+        return true;
   };
 
   const handleSubmit = (e) => {

@@ -16,7 +16,7 @@ export default function Home() {
             <h1>LanceStack</h1>
             <nav>
                 <ul>
-                    <li><a href="Home">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="Login">Login</a></li>
                     <li><a href="Signup">SignIn</a></li>
                     <li><a href="#contact">About</a></li>
