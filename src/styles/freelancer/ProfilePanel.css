@@ -1,47 +1,44 @@
-/* ProfilePanel.css */
 .profile-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 300px;
-  height: 100%;
-  background-color: white;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  transition: transform 0.3s ease;
-  transform: translateX(100%);
-}
-
-.profile-panel.open {
-  transform: translateX(0);
-}
-
-.profile-panel .close-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.profile-options {
-  padding: 20px;
-}
-
-.profile-option {
-  display: block;
-  margin: 10px 0;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
-}
-
-.profile-option:hover {
-  background-color: #0056b3;
-}
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f8f9fa;
+    border-left: 1px solid #ddd;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-options {
+    margin-top: 30px;
+  }
+  
+  .profile-option {
+    display: block;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #007bff;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .profile-option:hover {
+    background-color: #e9ecef;
+  }
+  
+  .close-button {
+    align-self: flex-end;
+    font-size: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
