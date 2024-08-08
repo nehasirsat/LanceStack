@@ -1,33 +1,41 @@
 import axios from "axios";
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function Signup(){
 
-    const [username,setusername]=useState("");
+    const [userName,setusername]=useState("");
     const [email,setemail]=useState("");
-    const [phone,setphone]=useState("");
+    const [mobileNumber,setphone]=useState("");
     const [password,setpassword]=useState("");
     const [confirmpass,setconfirmpass]=useState("");
-    const handleForm=()=>{
+    const navigate =useNavigate();
+    const handleForm=async()=>{
         const userdata={
-            username:username,
+            userName:userName,
             password:password,
             email:email,
-            phone:phone,
+            mobileNumber:mobileNumber,
             confirmpass:confirmpass
         }
-        axios.post("/storeuser",userdata)
-        .then((res)=>{console.log("data added successfully");}
-        )
+        console.log("in function");
+        axios.post("http://localhost:8080/users",userdata)
+        .then((res) => {
+            console.log("Data added successfully");
+        })
+        .catch((error) => {
+            console.error("There was an error adding the data!", error);
+        });
+        navigate("/login");
     };
 
     return(
         <div>
                <form>
                 <label>Username:</label><br/>
-                <input type="text" id="username" name="username" onChange={(e)=>
+                <input type="text" id="username" name="userName" onChange={(e)=>
                {setusername(e.target.value);
-               console.log(username);
+               console.log(userName);
                }}/><br/>
                <label>Email:</label><br/>
                <input type="text" id="email" name="email" onChange={(e)=>
@@ -36,10 +44,10 @@ export default function Signup(){
                 console.log(email);
                }}/><br/>
                <label>Phone Number:</label><br/>
-               <input type="text" id="phone" name="phone" onChange={(e)=>
+               <input type="text" id="phone" name="mobileNumber" onChange={(e)=>
                {
                 setphone(e.target.value);
-                console.log(phone);
+                console.log(mobileNumber);
                }}/><br/>
                 <label>Password:</label><br/>
                 <input type="password" id="password" name="password" onChange={(e)=>
@@ -52,7 +60,7 @@ export default function Signup(){
                console.log(confirmpass);
                }}></input>
                 <br/>
-                <button onClick={handleForm}>register</button>
+                <button onClick={(e) => { e.preventDefault(); handleForm(); }}>register</button>
                </form> 
         </div>
     )

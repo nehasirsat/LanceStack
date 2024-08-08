@@ -42,7 +42,7 @@ export default function Login() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email: username, password }), // Use 'email' instead of 'username' to match API
+          body: JSON.stringify({ email: username, password })// Use 'email' instead of 'username' to match API
         });
 
         if (response.ok) {
@@ -66,7 +66,7 @@ export default function Login() {
         <div className="login-container">
           <h2>LanceStack</h2>
           <form onSubmit={loginFunc}>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Email</label>
             <input
               type="text"
               id="username"
