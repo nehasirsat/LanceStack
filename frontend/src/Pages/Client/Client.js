@@ -2,6 +2,7 @@ import "../../styles/client/clientpage.css"
 import Navigation from "../../components/Navigation";
 
 export default function ClientPage() {
+  
   return (
     <div className="clienthome">
     <Navigation/>
